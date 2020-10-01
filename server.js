@@ -10,7 +10,7 @@ mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifi
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
-const routes = require('./routes');
+const routes = require('./src/routes/routes');
 const path = require('path');
 const helmet = require('helmet');
 const csrf = require('csurf');
@@ -47,7 +47,7 @@ app.use(routes);
 
 app.on('pronto', () => {
   app.listen(3000, () => {
-    console.log('Acessar http://localhost:3000');
+    console.log('Acessar http://localhost:3000/');
     console.log('Servidor executando na porta 3000');
   });
 });
